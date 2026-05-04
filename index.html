@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathMaster Blog — Master Mathematics, Ace Your Exams</title>
+  <meta name="description" content="Free math lessons, exercises, and study guides in English. Master algebra, geometry, trigonometry, statistics and more." />
+  <meta name="keywords" content="math blog, mathematics, algebra, geometry, trigonometry, calculus, math exercises, ENEM math" />
+  <meta property="og:title" content="MathMaster Blog — Master Mathematics" />
+  <meta property="og:description" content="Free math lessons and exercises. Master algebra, geometry, trigonometry and more." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXVE6HWKNM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YXVE6HWKNM');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4133658586839866" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #185FA5;
+      --blue-dark: #0f3d6e;
+      --blue-light: #2176c2;
+      --gold: #F5A623;
+      --bg: #04080f;
+      --bg2: #070d1a;
+      --bg3: #0d1628;
+      --text: #e8edf5;
+      --text-muted: #8a9bb5;
+      --border: rgba(24,95,165,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAVBAR */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(4,8,15,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #fff; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--blue); color: #fff !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--blue-light) !important; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+      border-bottom: 1px solid var(--border); padding: 80px 2rem 70px; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(24,95,165,0.15) 0%, transparent 70%); pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block; background: rgba(24,95,165,0.15); border: 1px solid rgba(24,95,165,0.4);
+      color: #7ab3e0; font-size: 0.8rem; font-weight: 600; padding: 0.3rem 0.9rem;
+      border-radius: 100px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 900; line-height: 1.2; margin-bottom: 1.2rem; max-width: 750px; margin-left: auto; margin-right: auto;
+    }
+    .hero h1 em {
+      font-style: normal; background: linear-gradient(135deg, #185FA5, #4fa3e0);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 550px; margin: 0 auto 2rem; }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--blue); color: #fff; padding: 0.75rem 1.8rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--text); padding: 0.75rem 1.8rem; border-radius: 8px;
+      font-weight: 500; font-size: 0.95rem; text-decoration: none; border: 1px solid var(--border); transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--blue); transform: translateY(-1px); }
+
+    /* STATS */
+    .stats { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 2.5rem 2rem; }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; text-align: center;
+    }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--blue); display: block; }
+    .stat-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+
+    /* AD BANNER */
+    .ad-banner { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; text-align: center; }
+
+    /* POSTS */
+    .posts-section { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+    .section-header { margin-bottom: 2.5rem; }
+    .section-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; }
+    .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+
+    .post-card {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      text-decoration: none; color: var(--text); display: flex; flex-direction: column;
+    }
+    .post-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(24,95,165,0.15); }
+    .post-card-img {
+      background: linear-gradient(135deg, var(--blue-dark), var(--bg3));
+      height: 140px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;
+    }
+    .post-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .post-card-tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 0.5rem; }
+    .post-card-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.6rem; flex: 1; }
+    .post-card-meta {
+      font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center;
+      gap: 1rem; margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border);
+    }
+
+    .empty-state { text-align: center; padding: 4rem 2rem; color: var(--text-muted); grid-column: 1/-1; }
+    .empty-state .icon { font-size: 3rem; margin-bottom: 1rem; }
+    .empty-state h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text); margin-bottom: 0.5rem; }
+
+    /* SHOP CTA */
+    .shop-cta {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--bg3) 100%);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 4rem 2rem; text-align: center;
+    }
+    .shop-cta-inner { max-width: 700px; margin: 0 auto; }
+    .shop-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; margin-bottom: 1rem; }
+    .shop-cta p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1rem; }
+    .shop-products { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .shop-product {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; text-decoration: none; color: var(--text); transition: border-color 0.2s, background 0.2s;
+    }
+    .shop-product:hover { border-color: var(--gold); background: rgba(245,166,35,0.07); }
+    .shop-product-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .shop-product-name { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .shop-product-price { font-size: 0.78rem; color: var(--gold); font-weight: 700; }
+
+    /* FOOTER */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 3rem 2rem 1.5rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+    .footer-logo span { color: var(--blue); }
+    .footer-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+    .footer-col h4 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { font-size: 0.82rem; color: var(--text-muted); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Math<span>Master</span></a>
+    <ul class="nav-links">
+      <li><a href="#posts">Articles</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#shop" class="nav-cta">Get Resources →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">📐 Free Math Education</div>
+  <h1>Master <em>Mathematics</em><br>One Concept at a Time</h1>
+  <p>Clear explanations, interactive exercises, and proven strategies to help you excel in math — from algebra to calculus.</p>
+  <div class="hero-buttons">
+    <a href="#posts" class="btn-primary">Start Learning →</a>
+    <a href="#shop" class="btn-secondary">Study Materials</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div>
+      <span class="stat-num" id="posts-count">0</span>
+      <span class="stat-label">Published Articles</span>
+    </div>
+    <div>
+      <span class="stat-num">30+</span>
+      <span class="stat-label">Math Topics</span>
+    </div>
+    <div>
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Free Content</span>
+    </div>
+    <div>
+      <span class="stat-num">∞</span>
+      <span class="stat-label">Practice Problems</span>
+    </div>
+  </div>
+</section>
+
+<!-- AD BANNER -->
+<div class="ad-banner">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+       data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- POSTS -->
+<section class="posts-section" id="posts">
+  <div class="section-header">
+    <div class="section-tag">Latest Articles</div>
+    <h2 class="section-title">Math Concepts Explained Simply</h2>
+  </div>
+  <div class="posts-grid" id="posts-grid">
+    <!-- POSTS_LIST -->
+    <div class="empty-state">
+      <div class="icon">📚</div>
+      <h3>New articles coming soon!</h3>
+      <p>We publish new math lessons every day. Check back tomorrow!</p>
+    </div>
+  </div>
+</section>
+
+<!-- AD BANNER -->
+<div class="ad-banner">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+       data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- SHOP CTA -->
+<section class="shop-cta" id="shop">
+  <div class="shop-cta-inner">
+    <h2>Supercharge Your Math Studies</h2>
+    <p>Complete study materials to help you master mathematics and ace your exams. Trusted by thousands of students.</p>
+    <div class="shop-products">
+      <a href="https://pay.kiwify.com.br/jVPJ56R" target="_blank" class="shop-product">
+        <div class="shop-product-icon">📖</div>
+        <div class="shop-product-name">Complete Math Workbook</div>
+        <div class="shop-product-price">Best Seller</div>
+      </a>
+      <a href="https://pay.kiwify.com.br/q2Tx965" target="_blank" class="shop-product">
+        <div class="shop-product-icon">📝</div>
+        <div class="shop-product-name">5 Practice Test Pack</div>
+        <div class="shop-product-price">Top Rated</div>
+      </a>
+      <a href="https://pay.kiwify.com.br/OSoSIxN" target="_blank" class="shop-product">
+        <div class="shop-product-icon">🗺️</div>
+        <div class="shop-product-name">Mind Maps Bundle</div>
+        <div class="shop-product-price">Visual Learning</div>
+      </a>
+      <a href="https://pay.kiwify.com.br/g7JDMQd" target="_blank" class="shop-product">
+        <div class="shop-product-icon">📊</div>
+        <div class="shop-product-name">Study Planner</div>
+        <div class="shop-product-price">Stay Organized</div>
+      </a>
+      <a href="https://pay.kiwify.com.br/PAXxuLd" target="_blank" class="shop-product">
+        <div class="shop-product-icon">🎯</div>
+        <div class="shop-product-name">Complete Bundle</div>
+        <div class="shop-product-price">Best Value ⭐</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="about">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Math<span>Master</span></div>
+        <p class="footer-desc">Your go-to resource for mastering mathematics. Clear explanations, practice exercises, and study materials for students of all levels worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="#posts">Algebra</a></li>
+          <li><a href="#posts">Geometry</a></li>
+          <li><a href="#posts">Trigonometry</a></li>
+          <li><a href="#posts">Statistics</a></li>
+          <li><a href="#posts">Calculus</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://pay.kiwify.com.br/jVPJ56R" target="_blank">Workbook</a></li>
+          <li><a href="https://pay.kiwify.com.br/q2Tx965" target="_blank">Practice Tests</a></li>
+          <li><a href="https://pay.kiwify.com.br/OSoSIxN" target="_blank">Mind Maps</a></li>
+          <li><a href="https://pay.kiwify.com.br/PAXxuLd" target="_blank">Full Bundle</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 MathMaster Blog. All rights reserved.</p>
+      <p>Educational content for math students worldwide.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const posts = document.querySelectorAll('.post-card');
+  document.getElementById('posts-count').textContent = posts.length;
+  if (posts.length > 0) {
+    const empty = document.querySelector('.empty-state');
+    if (empty) empty.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
