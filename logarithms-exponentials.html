@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logarithms and Exponential Functions: A Step-by-Step Guide | MathMaster Blog</title>
+  <meta name="description" content="Understand logarithms and exponential functions. Learn log rules, how to solve log equations, and real-world applications with clear examples." />
+  <meta name="keywords" content="functions, mathematics, math tutorial, logarithms, exponentials" />
+  <meta property="og:title" content="Logarithms and Exponential Functions: A Step-by-Step Guide" />
+  <meta property="og:description" content="Understand logarithms and exponential functions. Learn log rules, how to solve log equations, and real-world applications with clear examples." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/logarithms-exponentials.html" />
+  <link rel="canonical" href="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/logarithms-exponentials.html" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Logarithms and Exponential Functions: A Step-by-Step Guide","datePublished":"2025-05-04","author":{"@type":"Organization","name":"MathMaster Blog"},"publisher":{"@type":"Organization","name":"MathMaster Blog"}}
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXVE6HWKNM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YXVE6HWKNM');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4133658586839866" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #185FA5; --blue-dark: #0f3d6e; --blue-light: #2176c2;
+      --gold: #F5A623; --bg: #04080f; --bg2: #070d1a; --bg3: #0d1628;
+      --text: #e8edf5; --text-muted: #8a9bb5; --border: rgba(24,95,165,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(4,8,15,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-back:hover { color: #fff; }
+
+    .post-hero {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border-bottom: 1px solid var(--border); padding: 3.5rem 2rem 3rem; text-align: center;
+    }
+    .post-category {
+      display: inline-block; background: rgba(24,95,165,0.15); border: 1px solid rgba(24,95,165,0.4);
+      color: #7ab3e0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.9rem;
+      border-radius: 100px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .post-hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; line-height: 1.25; max-width: 800px; margin: 0 auto 1rem;
+    }
+    .post-meta { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+
+    .post-container { max-width: 780px; margin: 0 auto; padding: 3rem 2rem; }
+    .ad-slot { margin: 2rem 0; text-align: center; }
+    .post-intro { font-size: 1.1rem; line-height: 1.8; color: #c8d8ea; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; }
+    p { margin-bottom: 1.2rem; color: #c0cfe0; }
+
+    .highlight-box {
+      background: rgba(24,95,165,0.1); border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+    }
+    .highlight-box strong { color: var(--blue); }
+
+    .calculator {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.75rem; margin: 2.5rem 0;
+    }
+    .calc-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .calc-title span { color: var(--blue); }
+    .calc-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+    .calc-field label { display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 500; }
+    .calc-field input {
+      width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.65rem 1rem; color: var(--text); font-size: 1rem; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s;
+    }
+    .calc-field input:focus { outline: none; border-color: var(--blue); }
+    .calc-btn {
+      background: var(--blue); color: #fff; border: none; border-radius: 8px;
+      padding: 0.7rem 1.8rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
+    }
+    .calc-btn:hover { background: var(--blue-light); }
+    .calc-result {
+      margin-top: 1rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem;
+    }
+    .calc-result-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .calc-result-value { font-size: 1.5rem; font-weight: 700; color: var(--blue); }
+
+    .exercises { margin: 2.5rem 0; }
+    .exercise {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; margin-bottom: 1.25rem;
+    }
+    .exercise-num { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 0.5rem; }
+    .exercise-q { font-weight: 600; margin-bottom: 0.75rem; color: var(--text); }
+    .exercise-toggle {
+      background: transparent; border: 1px solid var(--border); border-radius: 6px;
+      color: var(--text-muted); font-size: 0.85rem; padding: 0.4rem 0.9rem; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .exercise-toggle:hover { border-color: var(--blue); color: var(--text); }
+    .exercise-answer { display: none; margin-top: 1rem; background: rgba(24,95,165,0.08); border-radius: 8px; padding: 1rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .exercise-answer.show { display: block; }
+
+    .tip-box {
+      background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.3);
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 2rem 0;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .tip-text { font-size: 0.9rem; color: #d4b86a; }
+
+    .post-nav {
+      border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .back-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .back-link:hover { text-decoration: underline; }
+    .shop-link {
+      background: var(--blue); color: #fff; padding: 0.6rem 1.4rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s;
+    }
+    .shop-link:hover { background: var(--blue-light); }
+
+    @media (max-width: 600px) { .post-container { padding: 2rem 1rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Math<span>Master</span></a>
+    <a href="index.html" class="nav-back">← All Articles</a>
+  </div>
+</nav>
+
+<div class="post-hero">
+  <span class="post-category">🔢 Functions</span>
+  <h1>Logarithms and Exponential Functions: A Step-by-Step Guide</h1>
+  <div class="post-meta">
+    <span>📅 2025-05-04</span>
+    <span>⏱️ 8 min read</span>
+    <span>📐 MathMaster Blog</span>
+  </div>
+</div>
+
+<div class="post-container">
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <p class="post-intro">Logarithms were invented in the 17th century to simplify multiplication of large numbers — and they remain one of the most powerful tools in mathematics today. A logarithm answers the question: to what power must we raise the base to get this number? If 2³ = 8, then log₂(8) = 3. Logarithms are the inverse of exponential functions, and together they model growth and decay in biology, finance, chemistry, and physics. The decibel scale for sound, the Richter scale for earthquakes, and pH in chemistry are all logarithmic. Mastering logs means understanding the language of exponential change.</p>
+
+  <h2>Logarithm Rules You Must Know</h2>
+  <p>The four essential log rules: Product Rule: log(ab) = log a + log b. Quotient Rule: log(a/b) = log a − log b. Power Rule: log(aⁿ) = n·log a. Change of Base: log_b(x) = ln(x)/ln(b). Examples: log₂(32) = log₂(2⁵) = 5. log(100) = log(10²) = 2. ln(e³) = 3. To solve 2ˣ = 50: take log of both sides → x·log 2 = log 50 → x = log(50)/log(2) = 1.699/0.301 ≈ 5.64. Common bases: log = log₁₀ (common log), ln = logₑ (natural log, base e ≈ 2.718). The natural log is used in calculus and science because its derivative is beautifully simple.</p>
+
+  <div class="highlight-box">
+    <strong>Key Point:</strong> The change of base formula log_b(x) = ln(x)/ln(b) works on any calculator.
+  </div>
+
+  <h2>Solving Exponential and Logarithmic Equations</h2>
+  <p>For exponential equations, take the log of both sides. For log equations, exponentiate both sides. Example 1 (exponential): 3^(x+1) = 81 → 3^(x+1) = 3⁴ → x+1 = 4 → x = 3. Example 2: 5^x = 200 → x = log(200)/log(5) = 2.301/0.699 ≈ 3.29. Example 3 (logarithmic): log₂(x+3) = 5 → x+3 = 2⁵ = 32 → x = 29. Example 4: ln(2x) = 4 → 2x = e⁴ ≈ 54.6 → x ≈ 27.3. Always check domain restrictions: you cannot take the log of zero or a negative number. If your solution makes the argument negative, discard it.</p>
+
+  <div class="calculator">
+    <div class="calc-title"><span>🧮</span> Logarithm Calculator</div>
+    <div class="calc-fields">
+      <div class="calc-field">
+        <label>Number (x)</label>
+        <input type="number" id="calc-input1" placeholder="0" step="any" />
+      </div>
+      <div class="calc-field">
+        <label>Base (b)</label>
+        <input type="number" id="calc-input2" placeholder="0" step="any" />
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate →</button>
+    <div class="calc-result">
+      <div class="calc-result-label">log_b(x)</div>
+      <div class="calc-result-value" id="calc-result">—</div>
+    </div>
+  </div>
+
+  <h2>Exponential Growth, Decay, and Real Applications</h2>
+  <p>The compound interest formula A = P·eʳᵗ uses the natural log to find time: t = ln(A/P)/r. Population growth: N(t) = N₀·eᵏᵗ. Radioactive decay: N(t) = N₀·e^(−λt). Half-life formula: t½ = ln(2)/λ. The pH scale: pH = −log[H⁺]. Earthquake magnitude: M = log(I/I₀). These real-world applications show why logs are indispensable. When a quantity grows or decays at a rate proportional to itself, the answer always involves e and the natural log.</p>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>Practice Exercises</h2>
+  <div class="exercises">
+    <div class="exercise">
+      <div class="exercise-num">Exercise 1</div>
+      <div class="exercise-q">Solve for x: log₃(x) + log₃(x−2) = 1</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">Combine using product rule: log₃(x(x−2)) = 1
+x(x−2) = 3¹ = 3
+x²−2x−3 = 0
+(x−3)(x+1) = 0
+x = 3 or x = −1
+Discard x = −1 (log of negative undefined) → x = 3</div>
+    </div>
+    <div class="exercise">
+      <div class="exercise-num">Exercise 2</div>
+      <div class="exercise-q">A bacteria population doubles every 3 hours. Starting from 500, when will it reach 16,000?</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">16000 = 500·2^(t/3)
+32 = 2^(t/3)
+2⁵ = 2^(t/3)
+t/3 = 5 → t = 15 hours</div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <span class="tip-icon">💡</span>
+    <span class="tip-text"><strong>Study Tip:</strong> The change of base formula log_b(x) = ln(x)/ln(b) works on any calculator.</span>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>Logarithms reward patience. The rules take time to internalize, but once they click, you will see them everywhere. Practice applying each rule individually before combining them. Always check domain restrictions when solving log equations. The connection between exponential growth and logarithms is one of the deepest and most beautiful relationships in mathematics — master it and you will have a powerful tool for science, finance, and beyond.</p>
+
+  <div class="post-nav">
+    <a href="index.html" class="back-link">← Back to All Articles</a>
+    <a href="https://pay.kiwify.com.br/PAXxuLd" target="_blank" class="shop-link">📚 Get Study Materials</a>
+  </div>
+
+</div>
+
+<script>
+  function calculate() {
+    const input1 = parseFloat(document.getElementById('calc-input1').value) || 0;
+    const input2 = parseFloat(document.getElementById("calc-input2").value) || 0;
+    try {
+      const result = Math.log(Math.abs(input1)) / Math.log(input2 > 0 ? input2 : Math.E);
+      document.getElementById('calc-result').textContent = (typeof result === 'number') ? result.toFixed(4).replace(/\.?0+$/, '') : result;
+    } catch(e) {
+      document.getElementById('calc-result').textContent = 'Error';
+    }
+  }
+
+  function toggleAnswer(btn) {
+    const answer = btn.nextElementSibling;
+    const open   = answer.classList.toggle('show');
+    btn.textContent = open ? 'Hide Solution' : 'Show Solution';
+  }
+</script>
+
+</body>
+</html>
