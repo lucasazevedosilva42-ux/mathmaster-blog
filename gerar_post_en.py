@@ -425,7 +425,7 @@ def update_index(topic, date_str):
         content = content.replace(marker, card + "\n    " + marker)
 
     # Remove empty state once posts exist
-    content = re.sub(r'\s*<div class="empty-state">.*?</div>', "", content, flags=re.DOTALL)
+    content = re.sub(r'\s*<!-- EMPTY_STATE_START -->.*?<!-- EMPTY_STATE_END -->', "", content, flags=re.DOTALL)
 
     idx.write_text(content, encoding="utf-8")
     print("✅ index.html updated")
