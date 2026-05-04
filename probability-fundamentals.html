@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Probability Fundamentals: From Basic Concepts to Real Problems | MathMaster Blog</title>
+  <meta name="description" content="Learn probability fundamentals from basic concepts to compound events. Master permutations, combinations, and conditional probability with examples." />
+  <meta name="keywords" content="probability, mathematics, math tutorial, probability, fundamentals" />
+  <meta property="og:title" content="Probability Fundamentals: From Basic Concepts to Real Problems" />
+  <meta property="og:description" content="Learn probability fundamentals from basic concepts to compound events. Master permutations, combinations, and conditional probability with examples." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/probability-fundamentals.html" />
+  <link rel="canonical" href="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/probability-fundamentals.html" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Probability Fundamentals: From Basic Concepts to Real Problems","datePublished":"2025-05-04","author":{"@type":"Organization","name":"MathMaster Blog"},"publisher":{"@type":"Organization","name":"MathMaster Blog"}}
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXVE6HWKNM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YXVE6HWKNM');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4133658586839866" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #185FA5; --blue-dark: #0f3d6e; --blue-light: #2176c2;
+      --gold: #F5A623; --bg: #04080f; --bg2: #070d1a; --bg3: #0d1628;
+      --text: #e8edf5; --text-muted: #8a9bb5; --border: rgba(24,95,165,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(4,8,15,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-back:hover { color: #fff; }
+
+    .post-hero {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border-bottom: 1px solid var(--border); padding: 3.5rem 2rem 3rem; text-align: center;
+    }
+    .post-category {
+      display: inline-block; background: rgba(24,95,165,0.15); border: 1px solid rgba(24,95,165,0.4);
+      color: #7ab3e0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.9rem;
+      border-radius: 100px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .post-hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; line-height: 1.25; max-width: 800px; margin: 0 auto 1rem;
+    }
+    .post-meta { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+
+    .post-container { max-width: 780px; margin: 0 auto; padding: 3rem 2rem; }
+    .ad-slot { margin: 2rem 0; text-align: center; }
+    .post-intro { font-size: 1.1rem; line-height: 1.8; color: #c8d8ea; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; }
+    p { margin-bottom: 1.2rem; color: #c0cfe0; }
+
+    .highlight-box {
+      background: rgba(24,95,165,0.1); border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+    }
+    .highlight-box strong { color: var(--blue); }
+
+    .calculator {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.75rem; margin: 2.5rem 0;
+    }
+    .calc-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .calc-title span { color: var(--blue); }
+    .calc-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+    .calc-field label { display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 500; }
+    .calc-field input {
+      width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.65rem 1rem; color: var(--text); font-size: 1rem; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s;
+    }
+    .calc-field input:focus { outline: none; border-color: var(--blue); }
+    .calc-btn {
+      background: var(--blue); color: #fff; border: none; border-radius: 8px;
+      padding: 0.7rem 1.8rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
+    }
+    .calc-btn:hover { background: var(--blue-light); }
+    .calc-result {
+      margin-top: 1rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem;
+    }
+    .calc-result-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .calc-result-value { font-size: 1.5rem; font-weight: 700; color: var(--blue); }
+
+    .exercises { margin: 2.5rem 0; }
+    .exercise {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; margin-bottom: 1.25rem;
+    }
+    .exercise-num { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 0.5rem; }
+    .exercise-q { font-weight: 600; margin-bottom: 0.75rem; color: var(--text); }
+    .exercise-toggle {
+      background: transparent; border: 1px solid var(--border); border-radius: 6px;
+      color: var(--text-muted); font-size: 0.85rem; padding: 0.4rem 0.9rem; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .exercise-toggle:hover { border-color: var(--blue); color: var(--text); }
+    .exercise-answer { display: none; margin-top: 1rem; background: rgba(24,95,165,0.08); border-radius: 8px; padding: 1rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .exercise-answer.show { display: block; }
+
+    .tip-box {
+      background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.3);
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 2rem 0;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .tip-text { font-size: 0.9rem; color: #d4b86a; }
+
+    .post-nav {
+      border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .back-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .back-link:hover { text-decoration: underline; }
+    .shop-link {
+      background: var(--blue); color: #fff; padding: 0.6rem 1.4rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s;
+    }
+    .shop-link:hover { background: var(--blue-light); }
+
+    @media (max-width: 600px) { .post-container { padding: 2rem 1rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Math<span>Master</span></a>
+    <a href="index.html" class="nav-back">← All Articles</a>
+  </div>
+</nav>
+
+<div class="post-hero">
+  <span class="post-category">🎲 Probability</span>
+  <h1>Probability Fundamentals: From Basic Concepts to Real Problems</h1>
+  <div class="post-meta">
+    <span>📅 2025-05-04</span>
+    <span>⏱️ 8 min read</span>
+    <span>📐 MathMaster Blog</span>
+  </div>
+</div>
+
+<div class="post-container">
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <p class="post-intro">Probability is the mathematics of uncertainty — and it governs everything from weather forecasts to insurance premiums, from card games to quantum physics. At its core, probability measures how likely an event is to occur, expressed as a number between 0 (impossible) and 1 (certain). Simple probability is intuitive: the probability of rolling a 4 on a fair die is 1/6. But as situations grow more complex — multiple events, conditional information, dependent outcomes — you need systematic tools to reason clearly. Probability theory is also the foundation of statistics, machine learning, and scientific inference. Understanding it deeply will change how you think about risk and uncertainty.</p>
+
+  <h2>Fundamental Probability Rules</h2>
+  <p>The sample space S is the set of all possible outcomes. An event A is any subset of S. P(A) = (number of favorable outcomes) / (total outcomes). Key rules: Complement: P(A') = 1 − P(A). If P(rain) = 0.3, then P(no rain) = 0.7. Addition Rule for mutually exclusive events: P(A ∪ B) = P(A) + P(B). For non-mutually-exclusive: P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Example: drawing a heart or a face card from a deck. P(heart)=13/52, P(face card)=12/52, P(heart and face card)=3/52. P(heart or face card)=13/52+12/52−3/52=22/52≈0.423. Multiplication Rule for independent events: P(A ∩ B) = P(A)·P(B). Flipping two heads: (1/2)·(1/2) = 1/4.</p>
+
+  <div class="highlight-box">
+    <strong>Key Point:</strong> Ask yourself: does order matter? Yes → permutation. No → combination.
+  </div>
+
+  <h2>Conditional Probability and Bayes Theorem</h2>
+  <p>Conditional probability P(A|B) = P(A ∩ B) / P(B) reads as 'probability of A given B has occurred.' Example: in a class of 30 students, 18 play sports, 12 study music, and 8 do both. If a student plays sports, what is the probability they also study music? P(music|sports) = 8/18 ≈ 0.444. Bayes Theorem: P(A|B) = P(B|A)·P(A) / P(B). This powerful formula lets you update probabilities as new information arrives. It underlies spam filters, medical diagnosis, and machine learning classifiers. Two events are independent if P(A|B) = P(A), meaning knowing B gives no information about A.</p>
+
+  <div class="calculator">
+    <div class="calc-title"><span>🧮</span> Combination Calculator C(n,r)</div>
+    <div class="calc-fields">
+      <div class="calc-field">
+        <label>Total items (n)</label>
+        <input type="number" id="calc-input1" placeholder="0" step="any" />
+      </div>
+      <div class="calc-field">
+        <label>Items chosen (r)</label>
+        <input type="number" id="calc-input2" placeholder="0" step="any" />
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate →</button>
+    <div class="calc-result">
+      <div class="calc-result-label">C(n,r) = number of combinations</div>
+      <div class="calc-result-value" id="calc-result">—</div>
+    </div>
+  </div>
+
+  <h2>Counting: Permutations and Combinations</h2>
+  <p>When outcomes involve selecting from a group, use: Permutations (order matters): P(n,r) = n!/(n−r)!. Example: 3 runners chosen from 8 for gold/silver/bronze = 8×7×6 = 336 ways. Combinations (order does not matter): C(n,r) = n!/(r!(n−r)!). Example: choosing 3 students from 8 for a committee = 8!/(3!×5!) = 56 ways. Factorial: n! = n×(n−1)×...×1. The Binomial Theorem uses combinations to expand (a+b)ⁿ. Expected value E(X) = Σ x·P(x) gives the long-run average outcome — essential for evaluating fair games and insurance.</p>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>Practice Exercises</h2>
+  <div class="exercises">
+    <div class="exercise">
+      <div class="exercise-num">Exercise 1</div>
+      <div class="exercise-q">A bag has 5 red and 3 blue balls. Two balls are drawn without replacement. What is P(both red)?</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">P(1st red) = 5/8
+P(2nd red | 1st red) = 4/7
+P(both red) = (5/8) × (4/7) = 20/56 = 5/14 ≈ 0.357</div>
+    </div>
+    <div class="exercise">
+      <div class="exercise-num">Exercise 2</div>
+      <div class="exercise-q">How many ways can a president, VP, and treasurer be chosen from a club of 10 members?</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">Order matters (different offices) → permutation
+P(10,3) = 10 × 9 × 8 = 720 ways</div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <span class="tip-icon">💡</span>
+    <span class="tip-text"><strong>Study Tip:</strong> Ask yourself: does order matter? Yes → permutation. No → combination.</span>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>Probability is the language of uncertainty, and learning it changes how you see the world. You become better at evaluating risks, spotting misleading statistics, and making decisions under uncertainty. Master the basic rules first, then tackle conditional probability and counting principles. The more you practice, the more natural probabilistic thinking becomes. From everyday decisions to cutting-edge AI, probability is one of the most practically useful branches of mathematics you can study.</p>
+
+  <div class="post-nav">
+    <a href="index.html" class="back-link">← Back to All Articles</a>
+    <a href="https://pay.kiwify.com.br/PAXxuLd" target="_blank" class="shop-link">📚 Get Study Materials</a>
+  </div>
+
+</div>
+
+<script>
+  function calculate() {
+    const input1 = parseFloat(document.getElementById('calc-input1').value) || 0;
+    const input2 = parseFloat(document.getElementById("calc-input2").value) || 0;
+    try {
+      const result = (function(n,r){if(r>n)return 0;var res=1;for(var i=0;i<r;i++)res=res*(n-i)/(i+1);return Math.round(res);})(input1,input2);
+      document.getElementById('calc-result').textContent = (typeof result === 'number') ? result.toFixed(4).replace(/\.?0+$/, '') : result;
+    } catch(e) {
+      document.getElementById('calc-result').textContent = 'Error';
+    }
+  }
+
+  function toggleAnswer(btn) {
+    const answer = btn.nextElementSibling;
+    const open   = answer.classList.toggle('show');
+    btn.textContent = open ? 'Hide Solution' : 'Show Solution';
+  }
+</script>
+
+</body>
+</html>
