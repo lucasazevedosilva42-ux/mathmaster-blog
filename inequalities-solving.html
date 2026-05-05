@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solving Inequalities: Linear, Quadratic and Systems | MathMaster Blog</title>
+  <meta name="description" content="Master solving linear, quadratic, and system inequalities" />
+  <meta name="keywords" content="algebra, mathematics, math tutorial, inequalities, solving" />
+  <meta property="og:title" content="Solving Inequalities: Linear, Quadratic and Systems" />
+  <meta property="og:description" content="Master solving linear, quadratic, and system inequalities" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/inequalities-solving.html" />
+  <link rel="canonical" href="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/inequalities-solving.html" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Solving Inequalities: Linear, Quadratic and Systems","datePublished":"2026-05-05","author":{"@type":"Organization","name":"MathMaster Blog"},"publisher":{"@type":"Organization","name":"MathMaster Blog"}}
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXVE6HWKNM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YXVE6HWKNM');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4133658586839866" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #185FA5; --blue-dark: #0f3d6e; --blue-light: #2176c2;
+      --gold: #F5A623; --bg: #04080f; --bg2: #070d1a; --bg3: #0d1628;
+      --text: #e8edf5; --text-muted: #8a9bb5; --border: rgba(24,95,165,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(4,8,15,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-back:hover { color: #fff; }
+
+    .post-hero {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border-bottom: 1px solid var(--border); padding: 3.5rem 2rem 3rem; text-align: center;
+    }
+    .post-category {
+      display: inline-block; background: rgba(24,95,165,0.15); border: 1px solid rgba(24,95,165,0.4);
+      color: #7ab3e0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.9rem;
+      border-radius: 100px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .post-hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; line-height: 1.25; max-width: 800px; margin: 0 auto 1rem;
+    }
+    .post-meta { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+
+    .post-container { max-width: 780px; margin: 0 auto; padding: 3rem 2rem; }
+    .ad-slot { margin: 2rem 0; text-align: center; }
+    .post-intro { font-size: 1.1rem; line-height: 1.8; color: #c8d8ea; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; }
+    p { margin-bottom: 1.2rem; color: #c0cfe0; }
+
+    .highlight-box {
+      background: rgba(24,95,165,0.1); border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+    }
+    .highlight-box strong { color: var(--blue); }
+
+    .calculator {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.75rem; margin: 2.5rem 0;
+    }
+    .calc-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .calc-title span { color: var(--blue); }
+    .calc-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+    .calc-field label { display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 500; }
+    .calc-field input {
+      width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.65rem 1rem; color: var(--text); font-size: 1rem; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s;
+    }
+    .calc-field input:focus { outline: none; border-color: var(--blue); }
+    .calc-btn {
+      background: var(--blue); color: #fff; border: none; border-radius: 8px;
+      padding: 0.7rem 1.8rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
+    }
+    .calc-btn:hover { background: var(--blue-light); }
+    .calc-result {
+      margin-top: 1rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem;
+    }
+    .calc-result-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .calc-result-value { font-size: 1.5rem; font-weight: 700; color: var(--blue); }
+
+    .exercises { margin: 2.5rem 0; }
+    .exercise {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; margin-bottom: 1.25rem;
+    }
+    .exercise-num { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 0.5rem; }
+    .exercise-q { font-weight: 600; margin-bottom: 0.75rem; color: var(--text); }
+    .exercise-toggle {
+      background: transparent; border: 1px solid var(--border); border-radius: 6px;
+      color: var(--text-muted); font-size: 0.85rem; padding: 0.4rem 0.9rem; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .exercise-toggle:hover { border-color: var(--blue); color: var(--text); }
+    .exercise-answer { display: none; margin-top: 1rem; background: rgba(24,95,165,0.08); border-radius: 8px; padding: 1rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .exercise-answer.show { display: block; }
+
+    .tip-box {
+      background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.3);
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 2rem 0;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .tip-text { font-size: 0.9rem; color: #d4b86a; }
+
+    .post-nav {
+      border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .back-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .back-link:hover { text-decoration: underline; }
+    .shop-link {
+      background: var(--blue); color: #fff; padding: 0.6rem 1.4rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s;
+    }
+    .shop-link:hover { background: var(--blue-light); }
+
+    @media (max-width: 600px) { .post-container { padding: 2rem 1rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Math<span>Master</span></a>
+    <a href="index.html" class="nav-back">← All Articles</a>
+  </div>
+</nav>
+
+<div class="post-hero">
+  <span class="post-category">📐 Algebra</span>
+  <h1>Solving Inequalities: Linear, Quadratic and Systems</h1>
+  <div class="post-meta">
+    <span>📅 2026-05-05</span>
+    <span>⏱️ 8 min read</span>
+    <span>📐 MathMaster Blog</span>
+  </div>
+</div>
+
+<div class="post-container">
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <p class="post-intro">Inequalities are a fundamental concept in algebra, crucial for problem-solving in various fields, including science, economics, and engineering. Understanding how to solve inequalities is essential for any student of mathematics. In this post, we'll delve into the world of linear, quadratic, and system inequalities, exploring the techniques and strategies for solving them. With practice and persistence, you'll become proficient in solving these inequalities and unlock a deeper understanding of mathematical concepts.</p>
+
+  <h2>Linear Inequalities</h2>
+  <p>Linear inequalities are inequalities in which the highest power of the variable is 1. To solve a linear inequality, we can add, subtract, multiply, or divide both sides by the same value, as long as we reverse the direction of the inequality when multiplying or dividing by a negative number. For example, to solve the inequality 2x + 5 > 3, we subtract 5 from both sides to get 2x > -2, then divide both sides by 2 to get x > -1. This process can be applied to more complex linear inequalities, such as those involving fractions or decimals.</p>
+
+  <div class="highlight-box">
+    <strong>Key Point:</strong> Practice regularly
+  </div>
+
+  <h2>Quadratic Inequalities</h2>
+  <p>Quadratic inequalities are inequalities in which the highest power of the variable is 2. To solve a quadratic inequality, we can factor the quadratic expression, if possible, or use the quadratic formula. For example, to solve the inequality x^2 + 4x + 4 > 0, we can factor the left-hand side as (x + 2)^2 > 0. Since the square of any real number is non-negative, this inequality is true for all real values of x except -2. We can also use the quadratic formula to solve quadratic inequalities, such as x^2 - 4x - 3 > 0.</p>
+
+  <div class="calculator">
+    <div class="calc-title"><span>🧮</span> Quadratic Formula Calculator</div>
+    <div class="calc-fields">
+      <div class="calc-field">
+        <label>a</label>
+        <input type="number" id="calc-input1" placeholder="0" step="any" />
+      </div>
+      <div class="calc-field">
+        <label>b</label>
+        <input type="number" id="calc-input2" placeholder="0" step="any" />
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate →</button>
+    <div class="calc-result">
+      <div class="calc-result-label">Solution to the quadratic equation</div>
+      <div class="calc-result-value" id="calc-result">—</div>
+    </div>
+  </div>
+
+  <h2>Practice and Real-World Applications</h2>
+  <p>Inequalities have numerous real-world applications, including optimization problems, economics, and physics. To become proficient in solving inequalities, practice is essential. Start with simple linear inequalities and gradually move on to more complex quadratic and system inequalities. With persistence and dedication, you'll develop a deep understanding of inequalities and their applications.</p>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>Practice Exercises</h2>
+  <div class="exercises">
+    <div class="exercise">
+      <div class="exercise-num">Exercise 1</div>
+      <div class="exercise-q">Solve the inequality 3x - 2 > 5.</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">Step 1: Add 2 to both sides to get 3x > 7. Step 2: Divide both sides by 3 to get x > 7/3. Step 3: Simplify the right-hand side to get x > 2.33.</div>
+    </div>
+    <div class="exercise">
+      <div class="exercise-num">Exercise 2</div>
+      <div class="exercise-q">Solve the inequality x^2 - 2x - 3 > 0.</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">Step 1: Factor the left-hand side as (x - 3)(x + 1) > 0. Step 2: Find the critical points by setting each factor equal to 0 and solving for x. Step 3: Determine the intervals on which the inequality is true, which are x < -1 and x > 3.</div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <span class="tip-icon">💡</span>
+    <span class="tip-text"><strong>Study Tip:</strong> Practice regularly</span>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>Solving inequalities is a crucial skill in mathematics, with numerous applications in various fields. With the techniques and strategies outlined in this post, you'll be well on your way to mastering linear, quadratic, and system inequalities. Remember to practice regularly and stay motivated, and you'll unlock a deeper understanding of mathematical concepts and their real-world applications.</p>
+
+  <div class="post-nav">
+    <a href="index.html" class="back-link">← Back to All Articles</a>
+    <a href="https://pay.kiwify.com.br/PAXxuLd" target="_blank" class="shop-link">📚 Get Study Materials</a>
+  </div>
+
+</div>
+
+<script>
+  function calculate() {
+    const input1 = parseFloat(document.getElementById('calc-input1').value) || 0;
+    const input2 = parseFloat(document.getElementById("calc-input2").value) || 0;
+    try {
+      const result = (-input2 + Math.sqrt(input2*input2 - 4*1*input1)) / (2*1);
+      document.getElementById('calc-result').textContent = (typeof result === 'number') ? result.toFixed(4).replace(/\.?0+$/, '') : result;
+    } catch(e) {
+      document.getElementById('calc-result').textContent = 'Error';
+    }
+  }
+
+  function toggleAnswer(btn) {
+    const answer = btn.nextElementSibling;
+    const open   = answer.classList.toggle('show');
+    btn.textContent = open ? 'Hide Solution' : 'Show Solution';
+  }
+</script>
+
+</body>
+</html>
