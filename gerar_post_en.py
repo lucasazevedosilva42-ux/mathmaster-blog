@@ -422,7 +422,11 @@ def update_index(topic, date_str):
 
     marker = "<!-- POSTS_LIST -->"
     if marker in content:
-        content = content.replace(marker, card + "\n    " + marker)
+        # Only insert if this slug isn't already in the index
+        if f'href="{topic["slug"]}.html"' not in content:
+            content = content.replace(marker, card + "\n    " + marker)
+        else:
+            print(f"⚠️ Card for {topic['slug']} already in index — skipping")
 
     # Remove empty state once posts exist
     content = re.sub(r'\s*<!-- EMPTY_STATE_START -->.*?<!-- EMPTY_STATE_END -->', "", content, flags=re.DOTALL)
@@ -444,6 +448,10 @@ def update_sitemap(topic, date_str):
   </url>"""
 
     if "<urlset" in xml:
+        url_loc = f"{BASE_URL}/{topic['slug']}.html"
+        if url_loc in xml:
+            print(f"⚠️ {topic['slug']} already in sitemap — skipping")
+            return
         xml = xml.replace("</urlset>", entry + "\n</urlset>")
     else:
         xml = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -473,6 +481,8 @@ def git_push(topic, date_str):
     diff = subprocess.run(["git", "diff", "--staged", "--quiet"])
     if diff.returncode != 0:
         subprocess.run(["git", "commit", "-m", f"✅ Post: {topic['title'][:60]} — {date_str}"], check=True)
+        # Pull rebase in case another concurrent run pushed first
+        subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=False)
         subprocess.run(["git", "push"], check=True)
         print(f"✅ Published: {slug}.html")
     else:
