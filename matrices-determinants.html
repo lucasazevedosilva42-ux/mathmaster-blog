@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matrices and Determinants: Linear Algebra Fundamentals | MathMaster Blog</title>
+  <meta name="description" content="Master matrices and determinants" />
+  <meta name="keywords" content="linear algebra, mathematics, math tutorial, matrices, determinants" />
+  <meta property="og:title" content="Matrices and Determinants: Linear Algebra Fundamentals" />
+  <meta property="og:description" content="Master matrices and determinants" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/matrices-determinants.html" />
+  <link rel="canonical" href="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/matrices-determinants.html" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Matrices and Determinants: Linear Algebra Fundamentals","datePublished":"2026-05-05","author":{"@type":"Organization","name":"MathMaster Blog"},"publisher":{"@type":"Organization","name":"MathMaster Blog"}}
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXVE6HWKNM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YXVE6HWKNM');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4133658586839866" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #185FA5; --blue-dark: #0f3d6e; --blue-light: #2176c2;
+      --gold: #F5A623; --bg: #04080f; --bg2: #070d1a; --bg3: #0d1628;
+      --text: #e8edf5; --text-muted: #8a9bb5; --border: rgba(24,95,165,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(4,8,15,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-back:hover { color: #fff; }
+
+    .post-hero {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border-bottom: 1px solid var(--border); padding: 3.5rem 2rem 3rem; text-align: center;
+    }
+    .post-category {
+      display: inline-block; background: rgba(24,95,165,0.15); border: 1px solid rgba(24,95,165,0.4);
+      color: #7ab3e0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.9rem;
+      border-radius: 100px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .post-hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; line-height: 1.25; max-width: 800px; margin: 0 auto 1rem;
+    }
+    .post-meta { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+
+    .post-container { max-width: 780px; margin: 0 auto; padding: 3rem 2rem; }
+    .ad-slot { margin: 2rem 0; text-align: center; }
+    .post-intro { font-size: 1.1rem; line-height: 1.8; color: #c8d8ea; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; }
+    p { margin-bottom: 1.2rem; color: #c0cfe0; }
+
+    .highlight-box {
+      background: rgba(24,95,165,0.1); border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+    }
+    .highlight-box strong { color: var(--blue); }
+
+    .calculator {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.75rem; margin: 2.5rem 0;
+    }
+    .calc-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .calc-title span { color: var(--blue); }
+    .calc-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+    .calc-field label { display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 500; }
+    .calc-field input {
+      width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.65rem 1rem; color: var(--text); font-size: 1rem; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s;
+    }
+    .calc-field input:focus { outline: none; border-color: var(--blue); }
+    .calc-btn {
+      background: var(--blue); color: #fff; border: none; border-radius: 8px;
+      padding: 0.7rem 1.8rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
+    }
+    .calc-btn:hover { background: var(--blue-light); }
+    .calc-result {
+      margin-top: 1rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem;
+    }
+    .calc-result-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .calc-result-value { font-size: 1.5rem; font-weight: 700; color: var(--blue); }
+
+    .exercises { margin: 2.5rem 0; }
+    .exercise {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; margin-bottom: 1.25rem;
+    }
+    .exercise-num { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 0.5rem; }
+    .exercise-q { font-weight: 600; margin-bottom: 0.75rem; color: var(--text); }
+    .exercise-toggle {
+      background: transparent; border: 1px solid var(--border); border-radius: 6px;
+      color: var(--text-muted); font-size: 0.85rem; padding: 0.4rem 0.9rem; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .exercise-toggle:hover { border-color: var(--blue); color: var(--text); }
+    .exercise-answer { display: none; margin-top: 1rem; background: rgba(24,95,165,0.08); border-radius: 8px; padding: 1rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .exercise-answer.show { display: block; }
+
+    .tip-box {
+      background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.3);
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 2rem 0;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .tip-text { font-size: 0.9rem; color: #d4b86a; }
+
+    .post-nav {
+      border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .back-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .back-link:hover { text-decoration: underline; }
+    .shop-link {
+      background: var(--blue); color: #fff; padding: 0.6rem 1.4rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s;
+    }
+    .shop-link:hover { background: var(--blue-light); }
+
+    @media (max-width: 600px) { .post-container { padding: 2rem 1rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Math<span>Master</span></a>
+    <a href="index.html" class="nav-back">← All Articles</a>
+  </div>
+</nav>
+
+<div class="post-hero">
+  <span class="post-category">🔢 Linear Algebra</span>
+  <h1>Matrices and Determinants: Linear Algebra Fundamentals</h1>
+  <div class="post-meta">
+    <span>📅 2026-05-05</span>
+    <span>⏱️ 8 min read</span>
+    <span>📐 MathMaster Blog</span>
+  </div>
+</div>
+
+<div class="post-container">
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <p class="post-intro">Linear algebra is a fundamental branch of mathematics that deals with the study of linear equations, vector spaces, and linear transformations. Matrices and determinants are essential concepts in linear algebra, and understanding them is crucial for solving systems of linear equations, finding the inverse of a matrix, and determining the solvability of a system. In this blog post, we will delve into the world of matrices and determinants, exploring their definitions, properties, and applications. Whether you're a student, a researcher, or a professional, this post will provide you with a comprehensive understanding of these linear algebra fundamentals.</p>
+
+  <h2>Introduction to Matrices</h2>
+  <p>A matrix is a rectangular array of numbers, symbols, or expressions, arranged in rows and columns. For example, a 2x2 matrix can be represented as: [a, b; c, d]. Matrices can be added, subtracted, and multiplied, and these operations follow specific rules. To add two matrices, we add corresponding elements in the two matrices. To multiply two matrices, we follow the rule of multiplying the rows of the first matrix by the columns of the second matrix. For instance, if we have two matrices A = [1, 2; 3, 4] and B = [5, 6; 7, 8], their sum is [6, 8; 10, 12] and their product is [19, 22; 43, 50].</p>
+
+  <div class="highlight-box">
+    <strong>Key Point:</strong> Practice regularly
+  </div>
+
+  <h2>Understanding Determinants</h2>
+  <p>The determinant of a square matrix is a scalar value that can be computed from the matrix's elements. It is denoted by det(A) or |A|. The determinant of a 2x2 matrix [a, b; c, d] is calculated as ad - bc. For example, the determinant of the matrix [1, 2; 3, 4] is (1*4) - (2*3) = -2. The determinant of a matrix is used to determine the solvability of a system of linear equations and to find the inverse of a matrix. If the determinant of a matrix is zero, the matrix is said to be singular and does not have an inverse.</p>
+
+  <div class="calculator">
+    <div class="calc-title"><span>🧮</span> Matrix Determinant Calculator</div>
+    <div class="calc-fields">
+      <div class="calc-field">
+        <label>Enter matrix element a</label>
+        <input type="number" id="calc-input1" placeholder="0" step="any" />
+      </div>
+      <div class="calc-field">
+        <label>Enter matrix element b</label>
+        <input type="number" id="calc-input2" placeholder="0" step="any" />
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate →</button>
+    <div class="calc-result">
+      <div class="calc-result-label">Product of input1 and input2</div>
+      <div class="calc-result-value" id="calc-result">—</div>
+    </div>
+  </div>
+
+  <h2>Practice and Real-World Applications</h2>
+  <p>Matrices and determinants have numerous applications in physics, engineering, computer science, and economics. They are used to solve systems of linear equations, find the inverse of a matrix, and determine the solvability of a system. To practice working with matrices and determinants, try solving systems of linear equations using matrix operations and calculating the determinant of different matrices.</p>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>Practice Exercises</h2>
+  <div class="exercises">
+    <div class="exercise">
+      <div class="exercise-num">Exercise 1</div>
+      <div class="exercise-q">Find the determinant of the matrix [2, 1; 4, 3].</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">To find the determinant, we use the formula det(A) = ad - bc, where a = 2, b = 1, c = 4, and d = 3. So, det(A) = (2*3) - (1*4) = 6 - 4 = 2.</div>
+    </div>
+    <div class="exercise">
+      <div class="exercise-num">Exercise 2</div>
+      <div class="exercise-q">Solve the system of linear equations using matrix operations: 2x + 3y = 7 and x - 2y = -3.</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">First, we represent the system as an augmented matrix: [2, 3, 7; 1, -2, -3]. Then, we perform row operations to transform the matrix into row echelon form. After solving for x and y, we find that x = 1 and y = 2.</div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <span class="tip-icon">💡</span>
+    <span class="tip-text"><strong>Study Tip:</strong> Practice regularly</span>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>In conclusion, matrices and determinants are fundamental concepts in linear algebra with numerous applications in various fields. Understanding these concepts is essential for solving systems of linear equations, finding the inverse of a matrix, and determining the solvability of a system. With practice and dedication, you can master matrices and determinants and unlock the doors to a world of mathematical and scientific discoveries.</p>
+
+  <div class="post-nav">
+    <a href="index.html" class="back-link">← Back to All Articles</a>
+    <a href="https://pay.kiwify.com.br/PAXxuLd" target="_blank" class="shop-link">📚 Get Study Materials</a>
+  </div>
+
+</div>
+
+<script>
+  function calculate() {
+    const input1 = parseFloat(document.getElementById('calc-input1').value) || 0;
+    const input2 = parseFloat(document.getElementById("calc-input2").value) || 0;
+    try {
+      const result = input1 * input2;
+      document.getElementById('calc-result').textContent = (typeof result === 'number') ? result.toFixed(4).replace(/\.?0+$/, '') : result;
+    } catch(e) {
+      document.getElementById('calc-result').textContent = 'Error';
+    }
+  }
+
+  function toggleAnswer(btn) {
+    const answer = btn.nextElementSibling;
+    const open   = answer.classList.toggle('show');
+    btn.textContent = open ? 'Hide Solution' : 'Show Solution';
+  }
+</script>
+
+</body>
+</html>
