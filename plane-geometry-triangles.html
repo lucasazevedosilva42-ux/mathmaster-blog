@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triangle Geometry: Types, Properties and Theorems Explained | MathMaster Blog</title>
+  <meta name="description" content="Triangle Geometry Explained" />
+  <meta name="keywords" content="geometry, mathematics, math tutorial, plane, geometry, triangles" />
+  <meta property="og:title" content="Triangle Geometry: Types, Properties and Theorems Explained" />
+  <meta property="og:description" content="Triangle Geometry Explained" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/plane-geometry-triangles.html" />
+  <link rel="canonical" href="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/plane-geometry-triangles.html" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Triangle Geometry: Types, Properties and Theorems Explained","datePublished":"2026-05-07","author":{"@type":"Organization","name":"MathMaster Blog"},"publisher":{"@type":"Organization","name":"MathMaster Blog"}}
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXVE6HWKNM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YXVE6HWKNM');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4133658586839866" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #185FA5; --blue-dark: #0f3d6e; --blue-light: #2176c2;
+      --gold: #F5A623; --bg: #04080f; --bg2: #070d1a; --bg3: #0d1628;
+      --text: #e8edf5; --text-muted: #8a9bb5; --border: rgba(24,95,165,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(4,8,15,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-back:hover { color: #fff; }
+
+    .post-hero {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border-bottom: 1px solid var(--border); padding: 3.5rem 2rem 3rem; text-align: center;
+    }
+    .post-category {
+      display: inline-block; background: rgba(24,95,165,0.15); border: 1px solid rgba(24,95,165,0.4);
+      color: #7ab3e0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.9rem;
+      border-radius: 100px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .post-hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; line-height: 1.25; max-width: 800px; margin: 0 auto 1rem;
+    }
+    .post-meta { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+
+    .post-container { max-width: 780px; margin: 0 auto; padding: 3rem 2rem; }
+    .ad-slot { margin: 2rem 0; text-align: center; }
+    .post-intro { font-size: 1.1rem; line-height: 1.8; color: #c8d8ea; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; }
+    p { margin-bottom: 1.2rem; color: #c0cfe0; }
+
+    .highlight-box {
+      background: rgba(24,95,165,0.1); border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+    }
+    .highlight-box strong { color: var(--blue); }
+
+    .calculator {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.75rem; margin: 2.5rem 0;
+    }
+    .calc-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .calc-title span { color: var(--blue); }
+    .calc-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+    .calc-field label { display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 500; }
+    .calc-field input {
+      width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.65rem 1rem; color: var(--text); font-size: 1rem; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s;
+    }
+    .calc-field input:focus { outline: none; border-color: var(--blue); }
+    .calc-btn {
+      background: var(--blue); color: #fff; border: none; border-radius: 8px;
+      padding: 0.7rem 1.8rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
+    }
+    .calc-btn:hover { background: var(--blue-light); }
+    .calc-result {
+      margin-top: 1rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem;
+    }
+    .calc-result-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .calc-result-value { font-size: 1.5rem; font-weight: 700; color: var(--blue); }
+
+    .exercises { margin: 2.5rem 0; }
+    .exercise {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; margin-bottom: 1.25rem;
+    }
+    .exercise-num { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 0.5rem; }
+    .exercise-q { font-weight: 600; margin-bottom: 0.75rem; color: var(--text); }
+    .exercise-toggle {
+      background: transparent; border: 1px solid var(--border); border-radius: 6px;
+      color: var(--text-muted); font-size: 0.85rem; padding: 0.4rem 0.9rem; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .exercise-toggle:hover { border-color: var(--blue); color: var(--text); }
+    .exercise-answer { display: none; margin-top: 1rem; background: rgba(24,95,165,0.08); border-radius: 8px; padding: 1rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .exercise-answer.show { display: block; }
+
+    .tip-box {
+      background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.3);
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 2rem 0;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .tip-text { font-size: 0.9rem; color: #d4b86a; }
+
+    .post-nav {
+      border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .back-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .back-link:hover { text-decoration: underline; }
+    .shop-link {
+      background: var(--blue); color: #fff; padding: 0.6rem 1.4rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s;
+    }
+    .shop-link:hover { background: var(--blue-light); }
+
+    @media (max-width: 600px) { .post-container { padding: 2rem 1rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Math<span>Master</span></a>
+    <a href="index.html" class="nav-back">← All Articles</a>
+  </div>
+</nav>
+
+<div class="post-hero">
+  <span class="post-category">📐 Geometry</span>
+  <h1>Triangle Geometry: Types, Properties and Theorems Explained</h1>
+  <div class="post-meta">
+    <span>📅 2026-05-07</span>
+    <span>⏱️ 8 min read</span>
+    <span>📐 MathMaster Blog</span>
+  </div>
+</div>
+
+<div class="post-container">
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <p class="post-intro">Triangle geometry is a fundamental concept in mathematics, essential for various fields like engineering, architecture, and physics. Understanding the types, properties, and theorems of triangles is crucial for problem-solving and critical thinking. In this blog post, we will delve into the world of triangle geometry, exploring its significance and applications. From basic concepts to advanced theorems, we will break down the subject into easily digestible sections, making it accessible to learners of all levels. By the end of this post, you will have a solid grasp of triangle geometry and be able to apply your knowledge to real-world problems.</p>
+
+  <h2>Types of Triangles</h2>
+  <p>There are several types of triangles, each with unique properties. The most common types include equilateral triangles, isosceles triangles, and scalene triangles. An equilateral triangle has three equal sides, while an isosceles triangle has two equal sides. A scalene triangle, on the other hand, has three unequal sides. Additionally, triangles can be classified as acute, right, or obtuse, based on the measure of their angles. Understanding the different types of triangles is essential for solving problems and applying geometric concepts. For example, if you know that a triangle is isosceles, you can use the properties of isosceles triangles to find the length of the sides or the measure of the angles.</p>
+
+  <div class="highlight-box">
+    <strong>Key Point:</strong> Practice regularly
+  </div>
+
+  <h2>Properties and Theorems</h2>
+  <p>Triangles have several important properties and theorems. One of the most significant theorems is the Pythagorean theorem, which states that in a right-angled triangle, the square of the hypotenuse is equal to the sum of the squares of the other two sides. Another crucial concept is the triangle inequality theorem, which states that the sum of the lengths of any two sides of a triangle must be greater than the length of the third side. Furthermore, triangles have properties like congruence and similarity, which are essential for solving problems and proving theorems. For instance, if two triangles are congruent, you can use the properties of congruent triangles to find the length of the sides or the measure of the angles.</p>
+
+  <div class="calculator">
+    <div class="calc-title"><span>🧮</span> Triangle Side Length Calculator</div>
+    <div class="calc-fields">
+      <div class="calc-field">
+        <label>Hypotenuse Length</label>
+        <input type="number" id="calc-input1" placeholder="0" step="any" />
+      </div>
+      <div class="calc-field">
+        <label>One Side Length</label>
+        <input type="number" id="calc-input2" placeholder="0" step="any" />
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate →</button>
+    <div class="calc-result">
+      <div class="calc-result-label">Length of the Third Side</div>
+      <div class="calc-result-value" id="calc-result">—</div>
+    </div>
+  </div>
+
+  <h2>Practice and Real-World Applications</h2>
+  <p>Triangle geometry has numerous real-world applications, from architecture to engineering. For example, triangles are used in the design of bridges, buildings, and roofs. Additionally, triangles are used in physics to describe the motion of objects and in computer science to create graphics and animations. To master triangle geometry, practice is key. Try solving problems and applying the concepts to real-world scenarios. With persistence and dedication, you can develop a deep understanding of triangle geometry and its applications.</p>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>Practice Exercises</h2>
+  <div class="exercises">
+    <div class="exercise">
+      <div class="exercise-num">Exercise 1</div>
+      <div class="exercise-q">In a right-angled triangle, the length of the hypotenuse is 10 cm and one of the other sides is 6 cm, find the length of the third side.</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">Step 1: Use the Pythagorean theorem, which states that a^2 + b^2 = c^2, where c is the length of the hypotenuse. Step 2: Substitute the given values into the equation, 6^2 + b^2 = 10^2. Step 3: Simplify the equation, 36 + b^2 = 100. Step 4: Solve for b, b^2 = 100 - 36, b^2 = 64, b = sqrt(64), b = 8 cm.</div>
+    </div>
+    <div class="exercise">
+      <div class="exercise-num">Exercise 2</div>
+      <div class="exercise-q">If two triangles are congruent, and one of the triangles has sides of length 5 cm, 7 cm, and 9 cm, find the length of the corresponding sides of the other triangle.</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">Step 1: Recall that congruent triangles have the same size and shape. Step 2: Since the two triangles are congruent, the corresponding sides are equal. Step 3: Therefore, the length of the corresponding sides of the other triangle is also 5 cm, 7 cm, and 9 cm.</div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <span class="tip-icon">💡</span>
+    <span class="tip-text"><strong>Study Tip:</strong> Practice regularly</span>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>In conclusion, triangle geometry is a fascinating and essential topic in mathematics. By mastering the types, properties, and theorems of triangles, you can develop problem-solving skills and apply geometric concepts to real-world scenarios. Remember to practice regularly and use online resources to supplement your learning. With persistence and dedication, you can become proficient in triangle geometry and unlock a world of mathematical possibilities.</p>
+
+  <div class="post-nav">
+    <a href="index.html" class="back-link">← Back to All Articles</a>
+    <a href="https://pay.kiwify.com.br/PAXxuLd" target="_blank" class="shop-link">📚 Get Study Materials</a>
+  </div>
+
+</div>
+
+<script>
+  function calculate() {
+    const input1 = parseFloat(document.getElementById('calc-input1').value) || 0;
+    const input2 = parseFloat(document.getElementById("calc-input2").value) || 0;
+    try {
+      const result = Math.sqrt(input1^2 - input2^2);
+      document.getElementById('calc-result').textContent = (typeof result === 'number') ? result.toFixed(4).replace(/\.?0+$/, '') : result;
+    } catch(e) {
+      document.getElementById('calc-result').textContent = 'Error';
+    }
+  }
+
+  function toggleAnswer(btn) {
+    const answer = btn.nextElementSibling;
+    const open   = answer.classList.toggle('show');
+    btn.textContent = open ? 'Hide Solution' : 'Show Solution';
+  }
+</script>
+
+</body>
+</html>
