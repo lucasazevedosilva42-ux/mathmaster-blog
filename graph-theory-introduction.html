@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Graph Theory: Nodes, Edges and Applications | MathMaster Blog</title>
+  <meta name="description" content="Learn Graph Theory basics" />
+  <meta name="keywords" content="discrete math, mathematics, math tutorial, graph, theory, introduction" />
+  <meta property="og:title" content="Introduction to Graph Theory: Nodes, Edges and Applications" />
+  <meta property="og:description" content="Learn Graph Theory basics" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/graph-theory-introduction.html" />
+  <link rel="canonical" href="https://lucasazevedosilva42-ux.github.io/mathmaster-blog/graph-theory-introduction.html" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Introduction to Graph Theory: Nodes, Edges and Applications","datePublished":"2026-05-11","author":{"@type":"Organization","name":"MathMaster Blog"},"publisher":{"@type":"Organization","name":"MathMaster Blog"}}
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXVE6HWKNM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YXVE6HWKNM');
+  </script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4133658586839866" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #185FA5; --blue-dark: #0f3d6e; --blue-light: #2176c2;
+      --gold: #F5A623; --bg: #04080f; --bg2: #070d1a; --bg3: #0d1628;
+      --text: #e8edf5; --text-muted: #8a9bb5; --border: rgba(24,95,165,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(4,8,15,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-back:hover { color: #fff; }
+
+    .post-hero {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border-bottom: 1px solid var(--border); padding: 3.5rem 2rem 3rem; text-align: center;
+    }
+    .post-category {
+      display: inline-block; background: rgba(24,95,165,0.15); border: 1px solid rgba(24,95,165,0.4);
+      color: #7ab3e0; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.9rem;
+      border-radius: 100px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .post-hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; line-height: 1.25; max-width: 800px; margin: 0 auto 1rem;
+    }
+    .post-meta { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+
+    .post-container { max-width: 780px; margin: 0 auto; padding: 3rem 2rem; }
+    .ad-slot { margin: 2rem 0; text-align: center; }
+    .post-intro { font-size: 1.1rem; line-height: 1.8; color: #c8d8ea; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; }
+    p { margin-bottom: 1.2rem; color: #c0cfe0; }
+
+    .highlight-box {
+      background: rgba(24,95,165,0.1); border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+    }
+    .highlight-box strong { color: var(--blue); }
+
+    .calculator {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.75rem; margin: 2.5rem 0;
+    }
+    .calc-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .calc-title span { color: var(--blue); }
+    .calc-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+    .calc-field label { display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 500; }
+    .calc-field input {
+      width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.65rem 1rem; color: var(--text); font-size: 1rem; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s;
+    }
+    .calc-field input:focus { outline: none; border-color: var(--blue); }
+    .calc-btn {
+      background: var(--blue); color: #fff; border: none; border-radius: 8px;
+      padding: 0.7rem 1.8rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
+    }
+    .calc-btn:hover { background: var(--blue-light); }
+    .calc-result {
+      margin-top: 1rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem;
+    }
+    .calc-result-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .calc-result-value { font-size: 1.5rem; font-weight: 700; color: var(--blue); }
+
+    .exercises { margin: 2.5rem 0; }
+    .exercise {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; margin-bottom: 1.25rem;
+    }
+    .exercise-num { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 0.5rem; }
+    .exercise-q { font-weight: 600; margin-bottom: 0.75rem; color: var(--text); }
+    .exercise-toggle {
+      background: transparent; border: 1px solid var(--border); border-radius: 6px;
+      color: var(--text-muted); font-size: 0.85rem; padding: 0.4rem 0.9rem; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .exercise-toggle:hover { border-color: var(--blue); color: var(--text); }
+    .exercise-answer { display: none; margin-top: 1rem; background: rgba(24,95,165,0.08); border-radius: 8px; padding: 1rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .exercise-answer.show { display: block; }
+
+    .tip-box {
+      background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.3);
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 2rem 0;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .tip-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .tip-text { font-size: 0.9rem; color: #d4b86a; }
+
+    .post-nav {
+      border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .back-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .back-link:hover { text-decoration: underline; }
+    .shop-link {
+      background: var(--blue); color: #fff; padding: 0.6rem 1.4rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s;
+    }
+    .shop-link:hover { background: var(--blue-light); }
+
+    @media (max-width: 600px) { .post-container { padding: 2rem 1rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Math<span>Master</span></a>
+    <a href="index.html" class="nav-back">← All Articles</a>
+  </div>
+</nav>
+
+<div class="post-hero">
+  <span class="post-category">🔗 Discrete Math</span>
+  <h1>Introduction to Graph Theory: Nodes, Edges and Applications</h1>
+  <div class="post-meta">
+    <span>📅 2026-05-11</span>
+    <span>⏱️ 8 min read</span>
+    <span>📐 MathMaster Blog</span>
+  </div>
+</div>
+
+<div class="post-container">
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <p class="post-intro">Graph theory is a fascinating branch of discrete mathematics that studies connections and relationships between objects. It has numerous applications in computer science, engineering, and social network analysis. Understanding graph theory is essential for solving complex problems in these fields. In this blog post, we will introduce the fundamental concepts of graph theory, including nodes, edges, and their applications. Whether you're a student or a professional, this introduction will provide a solid foundation for exploring the world of graph theory.</p>
+
+  <h2>Nodes and Edges: The Building Blocks of Graphs</h2>
+  <p>In graph theory, a graph consists of two primary components: nodes (also called vertices) and edges. Nodes represent objects or entities, while edges represent the connections or relationships between these objects. For example, in a social network, nodes might represent people, and edges might represent friendships. We can classify edges as directed or undirected, depending on whether the connection has a direction or not. To illustrate this concept, consider a simple graph with three nodes (A, B, and C) and two edges (A-B and B-C). We can represent this graph using an adjacency list or an adjacency matrix, which are data structures used to store the connections between nodes.</p>
+
+  <div class="highlight-box">
+    <strong>Key Point:</strong> Draw graphs to visualize
+  </div>
+
+  <h2>Graph Types and Terminology</h2>
+  <p>There are several types of graphs, including simple graphs, weighted graphs, and multigraphs. A simple graph is an undirected graph with no multiple edges between nodes. A weighted graph is a graph where each edge has a weight or label associated with it. A multigraph is a graph that allows multiple edges between nodes. Other important terms in graph theory include degree (the number of edges incident on a node), path (a sequence of edges between nodes), and cycle (a path that starts and ends at the same node). Understanding these concepts is crucial for working with graphs and solving problems in graph theory.</p>
+
+  <div class="calculator">
+    <div class="calc-title"><span>🧮</span> Graph Degree Calculator</div>
+    <div class="calc-fields">
+      <div class="calc-field">
+        <label>Number of edges incident on node</label>
+        <input type="number" id="calc-input1" placeholder="0" step="any" />
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate →</button>
+    <div class="calc-result">
+      <div class="calc-result-label">Degree of node</div>
+      <div class="calc-result-value" id="calc-result">—</div>
+    </div>
+  </div>
+
+  <h2>Practice and Real-World Applications</h2>
+  <p>Graph theory has numerous real-world applications, including network analysis, traffic optimization, and recommendation systems. To practice graph theory, try solving problems on platforms like LeetCode or HackerRank. You can also work on projects that involve building and analyzing graphs, such as visualizing social networks or optimizing traffic flow. By practicing and applying graph theory concepts, you can develop a deeper understanding of this fascinating field and unlock its many applications.</p>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4133658586839866"
+         data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>Practice Exercises</h2>
+  <div class="exercises">
+    <div class="exercise">
+      <div class="exercise-num">Exercise 1</div>
+      <div class="exercise-q">Find the degree of node A in a graph with edges A-B, A-C, and B-C.</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">To find the degree of node A, we count the number of edges incident on A. In this case, there are two edges (A-B and A-C) incident on A. Therefore, the degree of node A is 2. Step 1: Identify the edges incident on node A. Step 2: Count the number of edges incident on node A. Step 3: Determine the degree of node A.</div>
+    </div>
+    <div class="exercise">
+      <div class="exercise-num">Exercise 2</div>
+      <div class="exercise-q">Determine whether a graph with nodes A, B, and C, and edges A-B and B-C, contains a cycle.</div>
+      <button class="exercise-toggle" onclick="toggleAnswer(this)">Show Solution</button>
+      <div class="exercise-answer">To determine whether the graph contains a cycle, we need to find a path that starts and ends at the same node. In this case, there is no path that starts and ends at the same node, so the graph does not contain a cycle. Step 1: Identify the nodes and edges in the graph. Step 2: Look for a path that starts and ends at the same node. Step 3: Determine whether the graph contains a cycle.</div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <span class="tip-icon">💡</span>
+    <span class="tip-text"><strong>Study Tip:</strong> Draw graphs to visualize</span>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>In conclusion, graph theory is a powerful tool for analyzing connections and relationships between objects. By understanding the fundamental concepts of nodes, edges, and graph types, you can unlock the many applications of graph theory. Remember to practice and apply graph theory concepts to develop a deeper understanding of this fascinating field.</p>
+
+  <div class="post-nav">
+    <a href="index.html" class="back-link">← Back to All Articles</a>
+    <a href="https://pay.kiwify.com.br/PAXxuLd" target="_blank" class="shop-link">📚 Get Study Materials</a>
+  </div>
+
+</div>
+
+<script>
+  function calculate() {
+    const input1 = parseFloat(document.getElementById('calc-input1').value) || 0;
+    const input2 = 0;
+    try {
+      const result = input1;
+      document.getElementById('calc-result').textContent = (typeof result === 'number') ? result.toFixed(4).replace(/\.?0+$/, '') : result;
+    } catch(e) {
+      document.getElementById('calc-result').textContent = 'Error';
+    }
+  }
+
+  function toggleAnswer(btn) {
+    const answer = btn.nextElementSibling;
+    const open   = answer.classList.toggle('show');
+    btn.textContent = open ? 'Hide Solution' : 'Show Solution';
+  }
+</script>
+
+</body>
+</html>
